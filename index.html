@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Século 23 IPTV — A Nova Era da TV | +50.000 Canais, Filmes e Séries em 4K</title>
+<meta name="description" content="Século 23 IPTV: filmes, séries, futebol ao vivo e canais 4K. Planos a partir de R$35/mês. Teste grátis agora pelo WhatsApp!">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://image.tmdb.org">
+<link rel="preconnect" href="https://images.unsplash.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Bebas+Neue&display=swap" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{
+    --bg:#0a0a0f;
+    --bg-2:#141420;
+    --primary:#e50914;
+    --accent:#00e0ff;
+    --gold:#ffb800;
+    --text:#ffffff;
+    --muted:#a0a3b8;
+    --card:#1a1a26;
+    --border:rgba(255,255,255,0.08);
+  }
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Inter',sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    overflow-x:hidden;
+    line-height:1.6;
+  }
+  ::-webkit-scrollbar{width:10px;height:10px}
+  ::-webkit-scrollbar-track{background:var(--bg-2)}
+  ::-webkit-scrollbar-thumb{background:#2a2a3e;border-radius:10px}
+  ::-webkit-scrollbar-thumb:hover{background:var(--primary)}
+  .container{max-width:1400px;margin:0 auto;padding:0 32px}
+  @media(max-width:768px){.container{padding:0 20px}}
+
+  /* HEADER */
+  header{
+    position:fixed;top:0;left:0;right:0;
+    z-index:100;
+    padding:18px 0;
+    transition:background .3s;
+    background:linear-gradient(180deg,rgba(10,10,15,.95),rgba(10,10,15,0));
+  }
+  header.scrolled{background:rgba(10,10,15,.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+  .nav{display:flex;align-items:center;justify-content:space-between;gap:24px}
+  .logo{
+    font-family:'Bebas Neue',sans-serif;
+    font-size:32px;font-weight:900;
+    color:var(--primary);
+    letter-spacing:2px;
+    text-shadow:0 0 20px rgba(229,9,20,.5);
+  }
+  .logo span{color:var(--text)}
+  .nav-links{display:flex;gap:28px;list-style:none}
+  .nav-links a{color:var(--text);text-decoration:none;font-weight:500;font-size:14px;transition:.3s;opacity:.8}
+  .nav-links a:hover{opacity:1;color:var(--primary)}
+  .btn-header{
+    background:var(--primary);
+    color:#fff;padding:10px 22px;border-radius:4px;
+    text-decoration:none;font-weight:700;font-size:14px;
+    transition:.3s;
+    display:inline-flex;align-items:center;gap:8px;
+  }
+  .btn-header:hover{background:#f40612;transform:scale(1.05)}
+  @media(max-width:768px){.nav-links{display:none}}
+
+  /* HERO */
+  .hero{
+    position:relative;
+    min-height:100vh;
+    display:flex;align-items:center;
+    overflow:hidden;
+  }
+  .hero-bg{
+    position:absolute;inset:0;
+    background-image:url('https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=1920&q=80');
+    background-size:cover;
+    background-position:center;
+    z-index:-2;
+  }
+  .hero-bg::after{
+    content:'';position:absolute;inset:0;
+    background:
+      linear-gradient(180deg,rgba(10,10,15,.4) 0%,rgba(10,10,15,.7) 50%,var(--bg) 100%),
+      linear-gradient(90deg,rgba(10,10,15,.95) 0%,rgba(10,10,15,.5) 60%,transparent 100%);
+  }
+  .hero-content{position:relative;z-index:2;max-width:680px;padding:120px 0 60px}
+  .badge{
+    display:inline-flex;align-items:center;gap:8px;
+    background:rgba(229,9,20,.15);
+    border:1px solid var(--primary);
+    padding:8px 18px;border-radius:4px;
+    font-size:12px;font-weight:700;color:var(--primary);
+    margin-bottom:24px;
+    text-transform:uppercase;letter-spacing:2px;
+  }
+  .badge::before{content:'';width:8px;height:8px;background:var(--primary);border-radius:50%;animation:pulse 1.5s infinite}
+  @keyframes pulse{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(229,9,20,.7)}50%{opacity:.6;box-shadow:0 0 0 8px rgba(229,9,20,0)}}
+  .hero h1{
+    font-family:'Bebas Neue',sans-serif;
+    font-size:clamp(42px,7vw,84px);
+    font-weight:900;
+    line-height:1;
+    margin-bottom:20px;
+    letter-spacing:1px;
+    text-shadow:0 4px 20px rgba(0,0,0,.5);
+  }
+  .hero h1 .red{color:var(--primary)}
+  .hero p.lead{
+    font-size:clamp(16px,1.6vw,20px);
+    color:#e0e0e0;
+    margin-bottom:32px;
+    text-shadow:0 2px 10px rgba(0,0,0,.7);
+  }
+  .hero p.lead strong{color:var(--text)}
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:36px}
+  .btn-primary{
+    background:#25d366;
+    color:#fff;padding:18px 36px;border-radius:6px;
+    text-decoration:none;font-weight:800;font-size:16px;
+    display:inline-flex;align-items:center;gap:10px;
+    box-shadow:0 8px 30px rgba(37,211,102,.4);
+    transition:.3s;
+    border:none;cursor:pointer;
+    text-transform:uppercase;letter-spacing:1px;
+  }
+  .btn-primary:hover{background:#1ebe57;transform:translateY(-3px);box-shadow:0 12px 40px rgba(37,211,102,.6)}
+  .btn-secondary{
+    background:rgba(255,255,255,.15);
+    color:var(--text);padding:18px 36px;border-radius:6px;
+    text-decoration:none;font-weight:700;font-size:16px;
+    backdrop-filter:blur(10px);
+    transition:.3s;
+    text-transform:uppercase;letter-spacing:1px;
+  }
+  .btn-secondary:hover{background:rgba(255,255,255,.25)}
+  .hero-meta{display:flex;gap:32px;flex-wrap:wrap;font-size:14px;color:var(--muted)}
+  .hero-meta strong{color:var(--text);font-size:16px;display:block;margin-bottom:2px}
+
+  /* TRIAL BAR */
+  .trial-bar{
+    background:linear-gradient(90deg,var(--primary),#7a0610,var(--primary));
+    background-size:200% 100%;
+    animation:slide 8s linear infinite;
+    padding:18px 20px;
+    text-align:center;
+    font-weight:700;
+    font-size:15px;
+    letter-spacing:.5px;
+    border-top:1px solid rgba(255,255,255,.15);
+    border-bottom:1px solid rgba(255,255,255,.15);
+  }
+  .trial-bar a{color:#fff;text-decoration:underline;font-weight:800}
+  .trial-bar strong{color:var(--gold)}
+  @keyframes slide{0%{background-position:0% 50%}100%{background-position:200% 50%}}
+
+  /* CAROUSEL ROWS */
+  .row{padding:50px 0 30px;position:relative}
+  .row-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:20px;padding:0 32px;max-width:1400px;margin-left:auto;margin-right:auto}
+  @media(max-width:768px){.row-header{padding:0 20px}}
+  .row-header h2{
+    font-family:'Bebas Neue',sans-serif;
+    font-size:clamp(24px,3vw,36px);
+    letter-spacing:1px;
+    font-weight:900;
+  }
+  .row-header h2 small{
+    display:block;
+    font-family:'Inter',sans-serif;
+    font-size:13px;color:var(--primary);font-weight:700;
+    text-transform:uppercase;letter-spacing:3px;
+    margin-bottom:6px;
+  }
+  .row-header .row-link{color:var(--muted);text-decoration:none;font-size:14px;font-weight:600;transition:.3s}
+  .row-header .row-link:hover{color:var(--text)}
+
+  .carousel{
+    display:flex;gap:8px;
+    overflow-x:auto;
+    padding:8px 32px 24px;
+    scroll-snap-type:x mandatory;
+    scrollbar-width:thin;
+  }
+  @media(max-width:768px){.carousel{padding:8px 20px 24px}}
+  .poster{
+    flex:0 0 auto;
+    width:200px;
+    aspect-ratio:2/3;
+    border-radius:8px;
+    overflow:hidden;
+    position:relative;
+    cursor:pointer;
+    transition:transform .4s ease,box-shadow .4s ease,z-index 0s .4s;
+    scroll-snap-align:start;
+    background:var(--card);
+  }
+  .poster:hover{
+    transform:scale(1.12) translateY(-8px);
+    box-shadow:0 20px 50px rgba(0,0,0,.8),0 0 0 2px var(--primary);
+    z-index:5;
+    transition:transform .4s ease,box-shadow .4s ease,z-index 0s 0s;
+  }
+  .poster img{width:100%;height:100%;object-fit:cover;display:block}
+  .poster-overlay{
+    position:absolute;inset:0;
+    background:linear-gradient(180deg,transparent 50%,rgba(0,0,0,.95) 100%);
+    display:flex;flex-direction:column;justify-content:flex-end;
+    padding:14px;
+    opacity:0;transition:.3s;
+  }
+  .poster:hover .poster-overlay{opacity:1}
+  .poster-overlay .title{font-weight:800;font-size:14px;margin-bottom:4px}
+  .poster-overlay .meta{font-size:11px;color:var(--muted);display:flex;gap:8px;align-items:center}
+  .poster-overlay .meta .rating{color:var(--gold);font-weight:700}
+  .poster .quality-tag{
+    position:absolute;top:10px;right:10px;
+    background:rgba(0,0,0,.8);
+    color:var(--accent);
+    padding:3px 8px;border-radius:3px;
+    font-size:10px;font-weight:800;
+    letter-spacing:1px;
+  }
+  @media(max-width:600px){.poster{width:140px}}
+
+  /* SPORTS / LIVE */
+  .live-section{
+    padding:80px 0;
+    background:linear-gradient(180deg,transparent,rgba(229,9,20,.05),transparent);
+  }
+  .live-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:20px;
+    max-width:1400px;margin:0 auto;padding:0 32px;
+  }
+  @media(max-width:768px){.live-grid{padding:0 20px}}
+  .live-card{
+    aspect-ratio:16/9;
+    border-radius:12px;
+    overflow:hidden;
+    position:relative;
+    cursor:pointer;
+    transition:.4s;
+  }
+  .live-card:hover{transform:translateY(-6px)}
+  .live-card img{width:100%;height:100%;object-fit:cover}
+  .live-card-overlay{
+    position:absolute;inset:0;
+    background:linear-gradient(180deg,rgba(0,0,0,.2) 0%,rgba(0,0,0,.85) 100%);
+    padding:20px;
+    display:flex;flex-direction:column;justify-content:space-between;
+  }
+  .live-tag{
+    align-self:flex-start;
+    background:var(--primary);
+    color:#fff;padding:5px 12px;border-radius:4px;
+    font-size:11px;font-weight:800;
+    text-transform:uppercase;letter-spacing:1.5px;
+    display:flex;align-items:center;gap:6px;
+  }
+  .live-tag::before{content:'';width:6px;height:6px;background:#fff;border-radius:50%;animation:pulse 1.5s infinite}
+  .live-card h3{font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:1px;margin-bottom:4px}
+  .live-card p{font-size:13px;color:#d0d0d0}
+
+  /* WHY SECTION */
+  .why{padding:80px 0}
+  .section-title{text-align:center;margin-bottom:50px}
+  .section-title small{
+    color:var(--primary);
+    font-weight:700;text-transform:uppercase;
+    letter-spacing:3px;font-size:13px;
+  }
+  .section-title h2{
+    font-family:'Bebas Neue',sans-serif;
+    font-size:clamp(34px,5vw,54px);
+    font-weight:900;
+    margin-top:8px;letter-spacing:1px;
+  }
+  .section-title p{color:var(--muted);font-size:17px;max-width:600px;margin:14px auto 0}
+  .features-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:20px;
+  }
+  .feature{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:12px;
+    padding:30px;
+    transition:.3s;
+  }
+  .feature:hover{border-color:var(--primary);transform:translateY(-4px)}
+  .feature-icon{
+    width:54px;height:54px;border-radius:10px;
+    background:rgba(229,9,20,.15);
+    display:flex;align-items:center;justify-content:center;
+    font-size:26px;margin-bottom:18px;
+  }
+  .feature h3{font-size:19px;font-weight:800;margin-bottom:8px}
+  .feature p{color:var(--muted);font-size:14.5px}
+
+  /* PLANS */
+  .plans{
+    padding:100px 0;
+    background:
+      linear-gradient(180deg,rgba(10,10,15,.85),rgba(10,10,15,.95)),
+      url('https://images.unsplash.com/photo-1485846234645-a62644f84728?w=1920&q=80');
+    background-size:cover;
+    background-attachment:fixed;
+    background-position:center;
+  }
+  .plans-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+    max-width:1200px;margin:0 auto;
+  }
+  .plan{
+    background:rgba(20,20,32,.85);
+    backdrop-filter:blur(20px);
+    border:1px solid var(--border);
+    border-radius:14px;
+    padding:36px 28px;
+    position:relative;
+    transition:.3s;
+    display:flex;flex-direction:column;
+  }
+  .plan:hover{transform:translateY(-8px);border-color:var(--primary)}
+  .plan.featured{
+    border:2px solid var(--primary);
+    box-shadow:0 20px 60px rgba(229,9,20,.25);
+    transform:scale(1.04);
+  }
+  .plan.featured:hover{transform:scale(1.04) translateY(-8px)}
+  .plan-tag{
+    position:absolute;top:-14px;left:50%;transform:translateX(-50%);
+    background:var(--primary);
+    color:#fff;padding:6px 18px;border-radius:4px;
+    font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;
+    white-space:nowrap;
+  }
+  .plan h3{
+    font-family:'Bebas Neue',sans-serif;
+    font-size:24px;letter-spacing:2px;
+    color:var(--primary);
+    margin-bottom:14px;
+  }
+  .plan-price{margin-bottom:6px;display:flex;align-items:baseline;gap:4px}
+  .plan-price .currency{font-size:20px;font-weight:700;color:var(--muted)}
+  .plan-price .value{
+    font-family:'Bebas Neue',sans-serif;
+    font-size:64px;font-weight:900;line-height:1;
+    color:var(--text);
+  }
+  .plan-period{color:var(--muted);font-size:13px;margin-bottom:6px}
+  .plan-equiv{
+    color:var(--gold);font-size:13px;font-weight:700;
+    margin-bottom:24px;min-height:18px;
+  }
+  .plan ul{list-style:none;margin-bottom:28px;flex:1}
+  .plan ul li{
+    padding:9px 0;
+    border-bottom:1px solid rgba(255,255,255,.06);
+    font-size:14px;
+    display:flex;align-items:center;gap:10px;
+  }
+  .plan ul li::before{content:'✓';color:var(--primary);font-weight:900;font-size:16px}
+  .plan ul li:last-child{border:none}
+  .plan .btn-plan{
+    background:rgba(255,255,255,0.08);
+    border:1px solid var(--border);
+    color:var(--text);
+    padding:14px;border-radius:6px;
+    text-decoration:none;font-weight:700;
+    text-align:center;transition:.3s;
+    text-transform:uppercase;letter-spacing:1px;font-size:13px;
+  }
+  .plan.featured .btn-plan,
+  .plan:hover .btn-plan{
+    background:#25d366;
+    border-color:transparent;
+    box-shadow:0 6px 20px rgba(37,211,102,.4);
+  }
+
+  /* DEVICES */
+  .devices{padding:80px 0;text-align:center}
+  .devices-list{
+    display:flex;flex-wrap:wrap;justify-content:center;gap:14px;
+    max-width:900px;margin:0 auto;
+  }
+  .device{
+    background:var(--card);
+    border:1px solid var(--border);
+    padding:14px 26px;border-radius:50px;
+    font-weight:600;font-size:14px;
+    display:flex;align-items:center;gap:10px;
+    transition:.3s;
+  }
+  .device:hover{border-color:var(--primary);transform:translateY(-3px)}
+
+  /* FAQ */
+  .faq{padding:80px 0}
+  .faq-list{max-width:800px;margin:0 auto}
+  .faq-item{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:8px;
+    margin-bottom:10px;
+    overflow:hidden;
+  }
+  .faq-q{
+    padding:20px 24px;
+    cursor:pointer;
+    display:flex;justify-content:space-between;align-items:center;
+    font-weight:700;font-size:16px;
+    user-select:none;
+  }
+  .faq-q::after{content:'+';font-size:26px;color:var(--primary);transition:.3s;font-weight:300}
+  .faq-item.active{border-color:var(--primary)}
+  .faq-item.active .faq-q::after{transform:rotate(45deg)}
+  .faq-a{
+    max-height:0;overflow:hidden;
+    transition:max-height .4s ease;
+    color:var(--muted);font-size:15px;
+  }
+  .faq-item.active .faq-a{max-height:300px}
+  .faq-a-inner{padding:0 24px 20px}
+
+  /* FINAL CTA */
+  .final-cta-wrapper{padding:80px 32px}
+  @media(max-width:768px){.final-cta-wrapper{padding:60px 20px}}
+  .final-cta{
+    text-align:center;
+    background:
+      linear-gradient(135deg,rgba(229,9,20,.85),rgba(120,0,10,.85)),
+      url('https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?w=1920&q=80');
+    background-size:cover;
+    background-position:center;
+    border-radius:20px;
+    padding:80px 40px;
+    max-width:1200px;margin:0 auto;
+    position:relative;overflow:hidden;
+  }
+  .final-cta h2{
+    font-family:'Bebas Neue',sans-serif;
+    font-size:clamp(34px,5vw,56px);font-weight:900;
+    margin-bottom:14px;letter-spacing:2px;
+    line-height:1;
+  }
+  .final-cta p{color:#fff;opacity:.95;font-size:18px;margin-bottom:32px}
+
+  /* FOOTER */
+  footer{
+    border-top:1px solid var(--border);
+    padding:50px 0 30px;text-align:center;
+    color:var(--muted);font-size:14px;
+  }
+  footer .logo{margin-bottom:14px}
+  footer p{margin-bottom:6px}
+  footer a{color:var(--text);text-decoration:none;font-weight:700}
+
+  /* WHATSAPP FLOAT */
+  .wa-float{
+    position:fixed;bottom:24px;right:24px;
+    width:62px;height:62px;border-radius:50%;
+    background:#25d366;
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 10px 30px rgba(37,211,102,.5);
+    z-index:99;
+    animation:bounce 2s infinite;
+    text-decoration:none;
+  }
+  .wa-float svg{width:34px;height:34px;fill:#fff}
+  @keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+  .wa-float::before{
+    content:'';position:absolute;inset:-4px;
+    border-radius:50%;border:2px solid #25d366;
+    animation:ring 2s infinite;
+  }
+  @keyframes ring{0%{transform:scale(1);opacity:1}100%{transform:scale(1.5);opacity:0}}
+</style>
+</head>
+<body>
+
+<header id="hdr">
+  <div class="container nav">
+    <div class="logo">SÉCULO<span>23</span></div>
+    <ul class="nav-links">
+      <li><a href="#filmes">Filmes</a></li>
+      <li><a href="#series">Séries</a></li>
+      <li><a href="#esportes">Esportes</a></li>
+      <li><a href="#planos">Planos</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+    <a href="https://wa.me/5561998258607?text=Ol%C3%A1!%20Quero%20solicitar%20meu%20teste%20gr%C3%A1tis%20de%204%20horas" class="btn-header" target="_blank">▶ Teste Grátis 4h</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="container">
+    <div class="hero-content">
+      <div class="badge">⚡ Teste Grátis de 4 Horas</div>
+      <h1>Filmes, Séries e Futebol.<br><span class="red">Tudo. Em 4K. Agora.</span></h1>
+      <p class="lead">Acesse <strong>+50.000 canais</strong>, <strong>milhares de filmes e séries</strong> e <strong>todo o futebol ao vivo</strong> sem travar. <strong style="color:#ffb800">Solicite seu teste agora mesmo e tenha 4 horas de acesso totalmente grátis.</strong></p>
+      <div class="hero-cta">
+        <a href="https://wa.me/5561998258607?text=Quero%20solicitar%20meu%20teste%20gr%C3%A1tis%20de%204%20horas%20do%20S%C3%A9culo%2023%20IPTV" class="btn-primary" target="_blank">▶ QUERO MEU TESTE DE 4H</a>
+        <a href="#planos" class="btn-secondary">Ver Planos</a>
+      </div>
+      <div class="hero-meta">
+        <div><strong>+50.000</strong>Canais & VODs</div>
+        <div><strong>4K UHD</strong>Qualidade real</div>
+        <div><strong>24/7</strong>Suporte ativo</div>
+        <div><strong>Sem</strong>Fidelidade</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="trial-bar">
+  🎁 <strong>OFERTA LIMITADA:</strong> Solicite agora e ganhe <strong>4 HORAS DE TESTE GRÁTIS</strong> — <a href="https://wa.me/5561998258607?text=Quero%20solicitar%20meu%20teste%20gr%C3%A1tis%20de%204%20horas%20do%20S%C3%A9culo%2023%20IPTV" target="_blank">CLIQUE E LIBERE NO WHATSAPP →</a>
+</div>
+
+<section class="row" id="filmes">
+  <div class="row-header">
+    <h2><small>🎬 Em destaque</small>Lançamentos no Cinema</h2>
+    <a href="#planos" class="row-link">Ver todos →</a>
+  </div>
+  <div class="carousel">
+    <div class="poster">
+      <img loading="lazy" src="https://image.tmdb.org/t/p/w500/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg" alt="Oppenheimer">
+      <span class="quality-tag">4K</span>
+      <div class="poster-overlay"><div class="title">Oppenheimer</div><div class="meta"><span class="rating">★ 8.4</span><span>2023</span></div></div>
+    </div>
+    <div class="poster">
+      <img loading="lazy" src="https://image.tmdb.org/t/p/w500/iuFNMS8U5cb6xfzi51Dbkovj7vM.jpg" alt="Barbie">
+      <span class="quality-tag">4K</span>
+      <div class="poster-overlay"><div class="title">Barbie</div><div class="meta"><span class="rating">★ 7.0</span><span>2023</span></div></div>
+    </div>
+    <div class="poster">
+      <img loading="lazy" src="https://image.tmdb.org/t/p/w500/vZloFAK7NmvMGKE7VkF5UHaz0I.jpg" alt="John Wick 4">
+      <span class="quality-tag">4K</span>
+      <div class="poster-overlay"><div class="title">John Wick 4</div><div class="meta"><span class="rating">★ 7.7</span><span>2023</span></div></div>
+    </div>
+    <div class="poster">
+      <img loading="lazy" src="https://image.tmdb.org/t/p/w500/1g0dhYtq4irTY1GPXvft6k4YLjm.jpg" alt="Spider-Man">
+      <span class="quality-tag">4K</span>
+      <div class="poster-overlay"><div class="title">Homem-Aranha</div><div class="meta"><span class="rating">★ 8.0</span><span>Saga</span></div></div>
+    </div>
+    <div class="poster">
+      <img loading="lazy" src="https://image.tmdb.org/t/p/w500/or06FN3Dka5tukK1e9sl16pB3iy.jpg" alt="Avengers Endgame">
+      <span class="quality-tag">4K</span>
+      <div class="poster-overlay"><div class="title">Vingadores: Ultimato</div><div class="meta"><span class="rating">★ 8.3</span><span>2019</span></div></div>
+    </div>
+    <div class="poster">
+      <img loading="lazy" src="https://image.tmdb.org/t/p/w500/kuf6dutpsT0vSVehic3EZIqkOBt.jpg" alt="The Batman">
+      <span class="quality-tag">4K</span>
+      <div class="poster-overlay"><div class="title">Batman</div><div class="meta"><span class="rating">★ 7.7</span><span>2022</span></div></div>
+    </div>
+    <div class="poster">
+      <img loading="lazy" src="https://image.tmdb.org/t/p/w500/db32LaOibwEliAmSL2jjDF6oDdj.jpg" alt="Top Gun Maverick">
+      <span class="quality-tag">4K</span>
+      <div class="poster-overlay"><div class="title">Top Gun: Maverick</div><div class="meta"><span class="rating">★ 8.3</span><span>2022</span></div></div>
+    </div>
+    <div class="poster">
+      <img loading="lazy" src="https://image.tmdb.org/t/p/w500/tnAuB8q5vv7Ax9UAEje5Xi4BXik.jpg" alt="Avatar">
+      <span class="quality-tag">4K</span>
+      <div class="poster-overlay"><div class="title">Avatar: O Caminho da Água</div><div class="meta"><span class="rating">★ 7.6</span><span>2022</span></div></div>
+    </div>
+    <div class="poster">
+      <img loading="lazy" src="https://image.tmdb.org/t/p/w500/gKkl37BQuKTanygYQG1pyYgLVgf.jpg" alt="Joker">
+      <span class="quality-tag">4K</span>
+      <div class="poster-overlay"><div class="title">Coringa</div><div class="meta"><span class="rating">★ 8.1</span><span>2019</span></div></div>
+    </div>
+    <div class="poster">
+      <img loading="lazy" src="https://image.tmdb.org/t/p/w500/9Gtg2DzBhmYamXBS1hKAhiwbBKS.jpg" alt="Forrest Gump">
+      <span class="quality-tag">HD</span>
+      <div class="poster-overlay"><div class="title">Forrest Gump</div><div class="meta"><span class="rating">★ 8.8</span><span>1994</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="row" id="series">
+  <div class="row-header">
+    <h2><small>📺 Bingewatch</small>Séries Imperdíveis</h2>
+    <a href="#planos" class="row-link">Ver todas →</a>
+  </div>
+  <div class="carousel">
+    <div class="poster">
+      <img loading="lazy" src="https://image.tmdb.org/t/p/w500/49WJfeN0moxb9IPfGn8AIqMGskD.jpg" alt="Stranger Things">
+      <span class="quality-tag">4K</span>
+      <div class="poster-overlay"><div class="title">Stranger Things</div><div class="meta"><span class="rating">★ 8.6</span><span>5 temp</span></div></div>
+    </div>
+    <div class="poster">
+      <img loading="lazy" src="https://image.tmdb.org/t/p/w500/ggFHVNu6YYI5L9pCfOacjizRGt.jpg" alt="Breaking Bad">
+      <span class="quality-tag">4K</span>
+      <div class="poster-overlay"><div class="title">Breaking Bad</div><div class="meta"><span class="rating">★ 9.5</span><span>5 temp</span></div></div>
+    </div>
+    <div class="poster">
+      <img loading="lazy" src="https://image.tmdb.org/t/p/w500/1XS1oqL89opfnbLl8WnZY1O1uJx.jpg" alt="Game of Thrones">
+      <span class="quality-tag">4K</span>
+      <div class="poster-overlay"><div class="title">Game of Thrones</div><div class="meta"><span class="rating">★ 9.2</span><span>8 temp</span></div></div>
+    </div>
+    <div class="poster">
+      <img loading="lazy" src="https://image.tmdb.org/t/p/w500/sWgBv7LV2PRoQgkxwlibdGXKz1S.jpg" alt="The Mandalorian">
+      <span class="quality-tag">4K</span>
+      <div class="poster-overlay"><div class="title">The Mandalorian</div><div class="meta"><span class="rating">★ 8.7</span><span>3 temp</span></div></div>
+    </div>
+    <div class="poster">
+      <img loading="lazy" src="https://image.tmdb.org/t/p/w500/reEMJA1uzscCbkpeRJeTT2bjqUp.jpg" alt="La Casa de Papel">
+      <span class="quality-tag">4K</span>
+      <div class="poster-overlay"><div class="title">La Casa de Papel</div><div class="meta"><span class="rating">★ 8.2</span><span>5 temp</span></div></div>
+    </div>
+    <div class="poster">
+      <img loading="lazy" src="https://image.tmdb.org/t/p/w500/9PFonBhy4cQy7Jz20NpMygczOkv.jpg" alt="Wandinha">
+      <span class="quality-tag">4K</span>
+      <div class="poster-overlay"><div class="title">Wandinha</div><div class="meta"><span class="rating">★ 8.5</span><span>2 temp</span></div></div>
+    </div>
+    <div class="poster">
+      <img loading="lazy" src="https://image.tmdb.org/t/p/w500/cZ0d3rtvXPVvuiX22sP79K3Hmjz.jpg" alt="The Witcher">
+      <span class="quality-tag">4K</span>
+      <div class="poster-overlay"><div class="title">The Witcher</div><div class="meta"><span class="rating">★ 8.0</span><span>3 temp</span></div></div>
+    </div>
+    <div class="poster">
+      <img loading="lazy" src="https://image.tmdb.org/t/p/w500/tXNB6Ie8tnIXjqaxwVUS0g0fxso.jpg" alt="The Last of Us">
+      <span class="quality-tag">4K</span>
+      <div class="poster-overlay"><div class="title">The Last of Us</div><div class="meta"><span class="rating">★ 8.7</span><span>2 temp</span></div></div>
+    </div>
+    <div class="poster">
+      <img loading="lazy" src="https://image.tmdb.org/t/p/w500/iUvr10H1g8sN7aA4pXGzKzr5yp1.jpg" alt="Friends">
+      <span class="quality-tag">HD</span>
+      <div class="poster-overlay"><div class="title">Friends</div><div class="meta"><span class="rating">★ 8.9</span><span>10 temp</span></div></div>
+    </div>
+    <div class="poster">
+      <img loading="lazy" src="https://image.tmdb.org/t/p/w500/jBJWaqoSCiARWtfV0GlqHrcdidd.jpg" alt="Peaky Blinders">
+      <span class="quality-tag">4K</span>
+      <div class="poster-overlay"><div class="title">Peaky Blinders</div><div class="meta"><span class="rating">★ 8.8</span><span>6 temp</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="live-section" id="esportes">
+  <div class="row-header">
+    <h2><small>⚽ Ao vivo agora</small>Todo o Esporte do Mundo</h2>
+  </div>
+  <div class="live-grid">
+    <div class="live-card">
+      <img loading="lazy" src="https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?w=800&q=80" alt="Futebol">
+      <div class="live-card-overlay">
+        <span class="live-tag">● Ao Vivo</span>
+        <div>
+          <h3>Brasileirão & Copas</h3>
+          <p>Brasileirão, Libertadores, Copa do Brasil, Champions League e PPVs.</p>
+        </div>
+      </div>
+    </div>
+    <div class="live-card">
+      <img loading="lazy" src="https://images.unsplash.com/photo-1546519638-68e109498ffc?w=800&q=80" alt="Basquete">
+      <div class="live-card-overlay">
+        <span class="live-tag">● Ao Vivo</span>
+        <div>
+          <h3>NBA & NBB</h3>
+          <p>Toda a temporada da NBA, Playoffs, NBB e ligas internacionais.</p>
+        </div>
+      </div>
+    </div>
+    <div class="live-card">
+      <img loading="lazy" src="https://images.unsplash.com/photo-1517649763962-0c623066013b?w=800&q=80" alt="UFC">
+      <div class="live-card-overlay">
+        <span class="live-tag">● Ao Vivo</span>
+        <div>
+          <h3>UFC & Boxe</h3>
+          <p>UFC, todos os PPVs, lutas de boxe e MMA internacional sem custo extra.</p>
+        </div>
+      </div>
+    </div>
+    <div class="live-card">
+      <img loading="lazy" src="https://images.unsplash.com/photo-1552674605-db6ffd4facb5?w=800&q=80" alt="F1">
+      <div class="live-card-overlay">
+        <span class="live-tag">● Ao Vivo</span>
+        <div>
+          <h3>Fórmula 1</h3>
+          <p>Treinos, classificatórios e corridas. Toda a temporada da F1 ao vivo.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="why">
+  <div class="container">
+    <div class="section-title">
+      <small>Por que Século 23?</small>
+      <h2>O melhor IPTV do Brasil</h2>
+      <p>Tecnologia de ponta, estabilidade extrema e a maior biblioteca de conteúdo.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature">
+        <div class="feature-icon">🎯</div>
+        <h3>Servidores Premium</h3>
+        <p>Infraestrutura dedicada com 99,9% de uptime. Zero travamento mesmo no horário de pico.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">🎬</div>
+        <h3>Lançamentos Toda Semana</h3>
+        <p>Filmes saindo do cinema, séries, animes e desenhos atualizados diariamente.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">⚽</div>
+        <h3>Todo o Futebol</h3>
+        <p>Brasileirão, Champions, Libertadores, NBA, UFC e Fórmula 1 ao vivo em alta definição.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">📱</div>
+        <h3>Multi-Telas</h3>
+        <p>Smart TV, celular, tablet, PC, TV Box ou Fire Stick. Onde estiver, é só ligar.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">🛡️</div>
+        <h3>Sem Burocracia</h3>
+        <p>Sem fidelidade, sem boleto, sem instalação. Ativação em até 5 minutos.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">💬</div>
+        <h3>Suporte Humano</h3>
+        <p>Atendimento real via WhatsApp, todos os dias. Sem robô, sem espera.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="plans" id="planos">
+  <div class="container">
+    <div class="section-title">
+      <small>Escolha seu plano</small>
+      <h2>Preços que cabem no bolso</h2>
+      <p>Quanto mais tempo, maior a economia. Cancele quando quiser.</p>
+    </div>
+    <div class="plans-grid">
+
+      <div class="plan">
+        <h3>MENSAL</h3>
+        <div class="plan-price"><span class="currency">R$</span><span class="value">35</span></div>
+        <div class="plan-period">por mês</div>
+        <div class="plan-equiv">&nbsp;</div>
+        <ul>
+          <li>+50.000 canais & VODs</li>
+          <li>Qualidade 4K / FullHD</li>
+          <li>Filmes & séries atualizados</li>
+          <li>Todo o futebol ao vivo</li>
+          <li>Suporte 24/7</li>
+        </ul>
+        <a href="https://wa.me/5561998258607?text=Quero%20o%20Plano%20Mensal%20do%20S%C3%A9culo%2023%20IPTV" class="btn-plan" target="_blank">Assinar Mensal</a>
+      </div>
+
+      <div class="plan">
+        <h3>TRIMESTRAL</h3>
+        <div class="plan-price"><span class="currency">R$</span><span class="value">90</span></div>
+        <div class="plan-period">a cada 3 meses</div>
+        <div class="plan-equiv">⚡ Equivale a R$30/mês</div>
+        <ul>
+          <li>Tudo do plano Mensal</li>
+          <li>Economia de R$15</li>
+          <li>Prioridade no suporte</li>
+          <li>Sem reajuste no período</li>
+          <li>Ativação imediata</li>
+        </ul>
+        <a href="https://wa.me/5561998258607?text=Quero%20o%20Plano%20Trimestral%20do%20S%C3%A9culo%2023%20IPTV" class="btn-plan" target="_blank">Assinar Trimestral</a>
+      </div>
+
+      <div class="plan featured">
+        <div class="plan-tag">🔥 Mais Vendido</div>
+        <h3>SEMESTRAL</h3>
+        <div class="plan-price"><span class="currency">R$</span><span class="value">150</span></div>
+        <div class="plan-period">a cada 6 meses</div>
+        <div class="plan-equiv">⚡ Equivale a R$25/mês</div>
+        <ul>
+          <li>Tudo dos planos anteriores</li>
+          <li>Economia de R$60</li>
+          <li>Suporte VIP prioritário</li>
+          <li>1 conexão extra grátis</li>
+          <li>Acesso antecipado a novidades</li>
+        </ul>
+        <a href="https://wa.me/5561998258607?text=Quero%20o%20Plano%20Semestral%20do%20S%C3%A9culo%2023%20IPTV" class="btn-plan" target="_blank">Assinar Semestral</a>
+      </div>
+
+      <div class="plan">
+        <div class="plan-tag" style="background:var(--gold);color:#000">💎 Melhor Custo</div>
+        <h3>ANUAL</h3>
+        <div class="plan-price"><span class="currency">R$</span><span class="value">250</span></div>
+        <div class="plan-period">por 12 meses</div>
+        <div class="plan-equiv">⚡ Apenas R$20,83/mês</div>
+        <ul>
+          <li>Tudo dos planos anteriores</li>
+          <li>Economia de R$170/ano</li>
+          <li>Suporte VIP Premium</li>
+          <li>2 conexões simultâneas</li>
+          <li>Garantia de preço fixo</li>
+        </ul>
+        <a href="https://wa.me/5561998258607?text=Quero%20o%20Plano%20Anual%20do%20S%C3%A9culo%2023%20IPTV" class="btn-plan" target="_blank">Assinar Anual</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="devices">
+  <div class="container">
+    <div class="section-title">
+      <small>Compatibilidade total</small>
+      <h2>Funciona em todos os aparelhos</h2>
+    </div>
+    <div class="devices-list">
+      <div class="device">📺 Smart TV</div>
+      <div class="device">📱 Android</div>
+      <div class="device">🍎 iPhone / iPad</div>
+      <div class="device">💻 Windows / Mac</div>
+      <div class="device">📦 TV Box</div>
+      <div class="device">🔥 Fire Stick</div>
+      <div class="device">🎮 Roku</div>
+      <div class="device">🌐 Chromecast</div>
+    </div>
+  </div>
+</section>
+
+<section class="faq" id="faq">
+  <div class="container">
+    <div class="section-title">
+      <small>Tire suas dúvidas</small>
+      <h2>Perguntas Frequentes</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q">Como faço o teste grátis?</div>
+        <div class="faq-a"><div class="faq-a-inner">Basta clicar em qualquer botão de WhatsApp. Em poucos minutos você recebe seu acesso de teste e já pode aproveitar a plataforma sem pagar nada.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Funciona em qualquer Smart TV?</div>
+        <div class="faq-a"><div class="faq-a-inner">Sim. Compatível com Samsung, LG, TCL, Philips, Roku, Android TV, Fire Stick, TV Box e qualquer dispositivo que rode aplicativos de streaming.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Trava ou tem propaganda?</div>
+        <div class="faq-a"><div class="faq-a-inner">Não. Trabalhamos com servidores premium dedicados de alta performance. Sem propaganda, sem travamento e em qualidade 4K real.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Tem fidelidade ou contrato?</div>
+        <div class="faq-a"><div class="faq-a-inner">Zero burocracia. Você paga, ativa e usa. Pode renovar quando quiser, sem multa, sem fidelidade.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Quais formas de pagamento?</div>
+        <div class="faq-a"><div class="faq-a-inner">PIX (ativação imediata), cartão de crédito e demais formas combinadas via WhatsApp.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="final-cta-wrapper">
+  <div class="final-cta">
+    <h2>Solicite seu teste agora mesmo</h2>
+    <p><strong>4 HORAS DE ACESSO GRÁTIS</strong> — sem cartão, sem compromisso. Veja com seus próprios olhos a qualidade do Século 23.</p>
+    <a href="https://wa.me/5561998258607?text=Quero%20solicitar%20meu%20teste%20gr%C3%A1tis%20de%204%20horas%20do%20S%C3%A9culo%2023%20IPTV" class="btn-primary" target="_blank" style="font-size:18px;padding:22px 44px;background:#fff;color:#000">
+      📲 (61) 99825-8607 — LIBERAR MEU TESTE
+    </a>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="logo">SÉCULO<span>23</span></div>
+    <p>📞 <a href="https://wa.me/5561998258607" target="_blank">(61) 99825-8607</a> — Atendimento via WhatsApp</p>
+    <p>© 2026 Século 23 IPTV. Todos os direitos reservados.</p>
+  </div>
+</footer>
+
+<a href="https://wa.me/5561998258607?text=Ol%C3%A1!%20Quero%20conhecer%20o%20S%C3%A9culo%2023%20IPTV" class="wa-float" target="_blank" aria-label="Falar no WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+</a>
+
+<script>
+  // Header scroll effect
+  const hdr=document.getElementById('hdr');
+  window.addEventListener('scroll',()=>hdr.classList.toggle('scrolled',window.scrollY>50));
+
+  // FAQ
+  document.querySelectorAll('.faq-item').forEach(item=>{
+    item.querySelector('.faq-q').addEventListener('click',()=>item.classList.toggle('active'));
+  });
+
+  // Carousel drag-to-scroll
+  document.querySelectorAll('.carousel').forEach(c=>{
+    let isDown=false,startX,scrollLeft;
+    c.addEventListener('mousedown',e=>{isDown=true;startX=e.pageX-c.offsetLeft;scrollLeft=c.scrollLeft;c.style.cursor='grabbing'});
+    c.addEventListener('mouseleave',()=>{isDown=false;c.style.cursor='grab'});
+    c.addEventListener('mouseup',()=>{isDown=false;c.style.cursor='grab'});
+    c.addEventListener('mousemove',e=>{if(!isDown)return;e.preventDefault();const x=e.pageX-c.offsetLeft;c.scrollLeft=scrollLeft-(x-startX)*1.5});
+  });
+</script>
+
+</body>
+</html>
