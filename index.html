@@ -13,15 +13,15 @@
 <style>
   *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
   :root{
-    --bg:#0a0a0f;
-    --bg-2:#141420;
+    --bg:#0b0b12;
+    --bg-2:#13131f;
     --primary:#e50914;
-    --accent:#00e0ff;
-    --gold:#ffb800;
+    --primary-dark:#b30710;
+    --accent:#ffb800;
     --text:#ffffff;
-    --muted:#a0a3b8;
-    --card:#1a1a26;
-    --border:rgba(255,255,255,0.08);
+    --muted:#9197b3;
+    --card:#181826;
+    --border:rgba(255,255,255,0.06);
   }
   html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
   body{
@@ -59,44 +59,38 @@
   .nav-links{display:flex;gap:26px;list-style:none}
   .nav-links a{color:var(--text);text-decoration:none;font-weight:500;font-size:14px;opacity:.85;transition:.3s}
   .nav-links a:hover{opacity:1;color:var(--primary)}
-  .btn-header{
-    background:var(--primary);
-    color:#fff;padding:10px 20px;border-radius:4px;
-    text-decoration:none;font-weight:700;font-size:13px;
-    transition:.3s;
-    white-space:nowrap;
-  }
-  .btn-header:hover{background:#f40612;transform:scale(1.05)}
   @media(max-width:768px){
     .nav-links{display:none}
-    .logo{font-size:24px}
-    .btn-header{padding:9px 16px;font-size:12px}
+    .logo{font-size:26px}
   }
 
   /* TRIAL BAR */
   .trial-bar{
-    background:linear-gradient(90deg,var(--primary),#7a0610,var(--primary));
+    display:block;
+    background:linear-gradient(90deg,var(--primary),var(--primary-dark),var(--primary));
     background-size:200% 100%;
-    animation:slide 8s linear infinite;
-    padding:12px 16px;
+    animation:slide 10s linear infinite;
+    padding:11px 16px;
     text-align:center;
     font-weight:700;
-    font-size:14px;
+    font-size:13.5px;
     letter-spacing:.3px;
-    margin-top:0;
+    color:#fff;
+    text-decoration:none;
+    transition:filter .2s;
   }
-  .trial-bar a{color:#fff;text-decoration:underline;font-weight:800}
-  .trial-bar strong{color:var(--gold)}
+  .trial-bar:hover{filter:brightness(1.1)}
+  .trial-bar strong{color:var(--accent);letter-spacing:1px}
   @keyframes slide{0%{background-position:0% 50%}100%{background-position:200% 50%}}
-  @media(max-width:600px){.trial-bar{font-size:12px;padding:10px 12px;line-height:1.5}}
+  @media(max-width:600px){.trial-bar{font-size:12px;padding:10px 12px}}
 
   /* HERO — Netflix Billboard Style */
   .hero{
     position:relative;
-    min-height:90vh;
+    min-height:78vh;
     display:flex;align-items:flex-end;
     overflow:hidden;
-    padding-bottom:60px;
+    padding-bottom:50px;
   }
   .hero-bg{
     position:absolute;inset:0;
@@ -154,7 +148,7 @@
     padding:5px 12px;border-radius:4px;
     border:1px solid rgba(255,255,255,.15);
   }
-  .hero-meta-row .pill.gold{color:var(--gold);border-color:rgba(255,184,0,.4)}
+  .hero-meta-row .pill.gold{color:var(--accent);border-color:rgba(255,184,0,.4)}
   .hero-meta-row .pill.accent{color:var(--accent);border-color:rgba(0,224,255,.4)}
   .hero p.lead{
     font-size:clamp(15px,1.5vw,18px);
@@ -216,13 +210,7 @@
     font-weight:900;
     line-height:1.1;
   }
-  .row-header h2 small{
-    display:block;
-    font-family:'Inter',sans-serif;
-    font-size:12px;color:var(--primary);font-weight:700;
-    text-transform:uppercase;letter-spacing:3px;
-    margin-bottom:6px;
-  }
+  .row-header h2 small{display:none}
 
   .carousel{
     display:flex;gap:8px;
@@ -264,7 +252,7 @@
   }
   .poster-overlay .title{font-weight:800;font-size:14px;margin-bottom:4px}
   .poster-overlay .meta{font-size:11px;color:var(--muted);display:flex;gap:8px}
-  .poster-overlay .meta .rating{color:var(--gold);font-weight:700}
+  .poster-overlay .meta .rating{color:var(--accent);font-weight:700}
   .poster .quality-tag{
     position:absolute;top:8px;right:8px;
     background:rgba(0,0,0,.85);
@@ -334,7 +322,7 @@
   }
   .plan-period{color:var(--muted);font-size:13px;margin-bottom:6px}
   .plan-equiv{
-    color:var(--gold);font-size:13px;font-weight:700;
+    color:var(--accent);font-size:13px;font-weight:700;
     margin-bottom:22px;min-height:18px;
   }
   .plan ul{list-style:none;margin-bottom:26px;flex:1}
@@ -514,37 +502,27 @@
       <li><a href="#planos">Planos</a></li>
       <li><a href="#faq">FAQ</a></li>
     </ul>
-    <a href="https://wa.me/5561998258607?text=Ol%C3%A1!%20Quero%20solicitar%20meu%20teste%20gr%C3%A1tis%20de%204%20horas" class="btn-header" target="_blank">▶ Teste Grátis</a>
   </div>
 </header>
 
-<div class="trial-bar">
-  🎁 <strong>OFERTA:</strong> Solicite agora e ganhe <strong>4 HORAS GRÁTIS</strong> — <a href="https://wa.me/5561998258607?text=Quero%20solicitar%20meu%20teste%20gr%C3%A1tis%20de%204%20horas%20do%20S%C3%A9culo%2023%20IPTV" target="_blank">LIBERAR NO WHATSAPP →</a>
-</div>
+<a class="trial-bar" href="https://wa.me/5561998258607?text=Quero%20solicitar%20meu%20teste%20gr%C3%A1tis%20de%204%20horas%20do%20S%C3%A9culo%2023%20IPTV" target="_blank">
+  🎁 <strong>4 HORAS GRÁTIS</strong> — Liberar agora no WhatsApp →
+</a>
 
 <section class="hero">
   <div class="hero-bg"></div>
   <div class="container">
     <div class="hero-content">
-      <span class="hero-tag">Em destaque agora</span>
-      <h1>Stranger Things<span class="red">e mais 50 mil títulos</span></h1>
+      <span class="hero-tag">Em destaque</span>
+      <h1>Cinema, séries e<span class="red">futebol em 4K</span></h1>
       <div class="hero-meta-row">
-        <span class="pill accent">4K UHD</span>
-        <span class="pill gold">★ 8.6</span>
-        <span class="pill">Drama</span>
-        <span class="pill">5 Temporadas</span>
-        <span class="pill">▶ 2026</span>
+        <span class="pill accent">+50.000 títulos</span>
+        <span class="pill">4K UHD</span>
+        <span class="pill">Sem fidelidade</span>
       </div>
-      <p class="lead">Filmes que ainda estão no cinema, todas as séries do momento, futebol ao vivo e canais 4K. <strong>Comece a assistir agora — teste grátis de 4 horas, sem cartão.</strong></p>
       <div class="hero-cta">
-        <a href="https://wa.me/5561998258607?text=Quero%20solicitar%20meu%20teste%20gr%C3%A1tis%20de%204%20horas%20do%20S%C3%A9culo%2023%20IPTV" class="btn-primary" target="_blank">▶ ASSISTIR AGORA</a>
+        <a href="https://wa.me/5561998258607?text=Quero%20solicitar%20meu%20teste%20gr%C3%A1tis%20de%204%20horas%20do%20S%C3%A9culo%2023%20IPTV" class="btn-primary" target="_blank">▶ ASSISTIR GRÁTIS</a>
         <a href="#planos" class="btn-secondary">Ver Planos</a>
-      </div>
-      <div class="hero-numbers">
-        <div><strong>+50K</strong>Canais & VODs</div>
-        <div><strong>4K</strong>Qualidade real</div>
-        <div><strong>24/7</strong>Suporte</div>
-        <div><strong>0</strong>Fidelidade</div>
       </div>
     </div>
   </div>
@@ -552,7 +530,7 @@
 
 <section class="row" id="filmes">
   <div class="row-header">
-    <h2><small>🎬 Em alta</small>Lançamentos do Cinema</h2>
+    <h2>Cinema em destaque</h2>
   </div>
   <div class="carousel">
     <div class="poster"><img loading="lazy" src="https://image.tmdb.org/t/p/w500/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg" alt="Oppenheimer"><span class="quality-tag">4K</span><div class="poster-overlay"><div class="title">Oppenheimer</div><div class="meta"><span class="rating">★ 8.4</span><span>2023</span></div></div></div>
@@ -570,7 +548,7 @@
 
 <section class="row" id="series">
   <div class="row-header">
-    <h2><small>📺 Para maratonar</small>Séries Imperdíveis</h2>
+    <h2>Séries para maratonar</h2>
   </div>
   <div class="carousel">
     <div class="poster"><img loading="lazy" src="https://image.tmdb.org/t/p/w500/49WJfeN0moxb9IPfGn8AIqMGskD.jpg" alt="Stranger Things"><span class="quality-tag">4K</span><div class="poster-overlay"><div class="title">Stranger Things</div><div class="meta"><span class="rating">★ 8.6</span><span>5 temp</span></div></div></div>
@@ -589,9 +567,8 @@
 <section class="plans" id="planos">
   <div class="container">
     <div class="section-title">
-      <small>Escolha seu plano</small>
-      <h2>Preços que cabem no bolso</h2>
-      <p>Quanto mais tempo, maior a economia. Sem fidelidade. Cancele quando quiser.</p>
+      <h2>Escolha seu plano</h2>
+      <p>Sem fidelidade. Cancele quando quiser.</p>
     </div>
     <div class="plans-grid">
 
@@ -642,7 +619,7 @@
       </div>
 
       <div class="plan">
-        <div class="plan-tag" style="background:var(--gold);color:#000">💎 Melhor Custo</div>
+        <div class="plan-tag" style="background:var(--accent);color:#000">💎 Melhor Custo</div>
         <h3>ANUAL</h3>
         <div class="plan-price"><span class="currency">R$</span><span class="value">250</span></div>
         <div class="plan-period">por 12 meses</div>
@@ -664,41 +641,15 @@
 <section class="why">
   <div class="container">
     <div class="section-title">
-      <small>Por que Século 23?</small>
-      <h2>Servidor premium, sem travar</h2>
-      <p>Infraestrutura dedicada e suporte humano todos os dias.</p>
+      <h2>Por que Século 23</h2>
     </div>
     <div class="features-grid">
-      <div class="feature">
-        <div class="feature-icon">🎯</div>
-        <h3>Servidores Premium</h3>
-        <p>Infraestrutura dedicada com 99,9% de uptime. Zero travamento mesmo no horário de pico.</p>
-      </div>
-      <div class="feature">
-        <div class="feature-icon">🎬</div>
-        <h3>Lançamentos Toda Semana</h3>
-        <p>Filmes saindo do cinema, séries, animes e desenhos atualizados diariamente.</p>
-      </div>
-      <div class="feature">
-        <div class="feature-icon">⚽</div>
-        <h3>Todo o Futebol</h3>
-        <p>Brasileirão, Champions, Libertadores, NBA, UFC e Fórmula 1 ao vivo em alta definição.</p>
-      </div>
-      <div class="feature">
-        <div class="feature-icon">📱</div>
-        <h3>Em Qualquer Tela</h3>
-        <p>Smart TV, celular, tablet, PC, TV Box ou Fire Stick. Onde estiver, é só ligar.</p>
-      </div>
-      <div class="feature">
-        <div class="feature-icon">🛡️</div>
-        <h3>Sem Burocracia</h3>
-        <p>Sem fidelidade, sem boleto, sem instalação. Ativação em até 5 minutos.</p>
-      </div>
-      <div class="feature">
-        <div class="feature-icon">💬</div>
-        <h3>Suporte Humano</h3>
-        <p>Atendimento real via WhatsApp, todos os dias. Sem robô, sem espera.</p>
-      </div>
+      <div class="feature"><div class="feature-icon">🎯</div><h3>Sem travar</h3><p>Servidores premium dedicados. 99,9% de uptime, sem propaganda.</p></div>
+      <div class="feature"><div class="feature-icon">🎬</div><h3>Sempre atualizado</h3><p>Lançamentos do cinema e séries do momento toda semana.</p></div>
+      <div class="feature"><div class="feature-icon">⚽</div><h3>Todo o futebol</h3><p>Brasileirão, Champions, NBA, UFC e F1 ao vivo em 4K.</p></div>
+      <div class="feature"><div class="feature-icon">📱</div><h3>Em qualquer tela</h3><p>Smart TV, celular, TV Box, Fire Stick, PC. Onde estiver.</p></div>
+      <div class="feature"><div class="feature-icon">⚡</div><h3>Ativação em 5min</h3><p>Pague no PIX e receba o acesso na hora.</p></div>
+      <div class="feature"><div class="feature-icon">💬</div><h3>Suporte humano</h3><p>Atendimento real no WhatsApp. Sem robô, sem espera.</p></div>
     </div>
   </div>
 </section>
@@ -706,7 +657,6 @@
 <section class="devices">
   <div class="container">
     <div class="section-title">
-      <small>Compatibilidade</small>
       <h2>Funciona em todos aparelhos</h2>
     </div>
     <div class="devices-list">
@@ -724,7 +674,6 @@
 
 <section class="faq" id="faq">
   <div class="section-title">
-    <small>Tire suas dúvidas</small>
     <h2>Perguntas Frequentes</h2>
   </div>
   <div class="faq-list">
@@ -753,10 +702,10 @@
 
 <section class="final-cta-wrapper">
   <div class="final-cta">
-    <h2>Solicite seu teste agora</h2>
-    <p><strong>4 HORAS GRÁTIS</strong> — sem cartão, sem compromisso. Veja a qualidade do Século 23 antes de decidir.</p>
+    <h2>4 horas grátis. Sem cartão.</h2>
+    <p>Teste agora e decida depois.</p>
     <a href="https://wa.me/5561998258607?text=Quero%20solicitar%20meu%20teste%20gr%C3%A1tis%20de%204%20horas%20do%20S%C3%A9culo%2023%20IPTV" class="btn-primary" target="_blank" style="background:#fff;color:#000">
-      📲 (61) 99825-8607 — LIBERAR TESTE
+      📲 (61) 99825-8607
     </a>
   </div>
 </section>
