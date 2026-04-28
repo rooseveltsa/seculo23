@@ -39,14 +39,14 @@
   @media(max-width:768px){.container{padding:0 18px}}
 
   /* HEADER */
+  .topbar{position:sticky;top:0;z-index:100}
   header{
-    position:fixed;top:0;left:0;right:0;
-    z-index:100;
     padding:14px 0;
     transition:background .3s;
-    background:linear-gradient(180deg,rgba(10,10,15,.95),rgba(10,10,15,0));
+    background:rgba(10,10,15,.96);
+    backdrop-filter:blur(20px);
+    border-bottom:1px solid var(--border);
   }
-  header.scrolled{background:rgba(10,10,15,.96);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
   .nav{display:flex;align-items:center;justify-content:space-between;gap:16px}
   .logo{
     font-family:'Bebas Neue',sans-serif;
@@ -110,10 +110,10 @@
   .hero-content{
     position:relative;z-index:2;
     max-width:680px;
-    padding:140px 0 0;
+    padding:60px 0 0;
   }
   @media(max-width:768px){
-    .hero{min-height:auto;padding:120px 0 40px;align-items:center}
+    .hero{min-height:auto;padding:60px 0 40px;align-items:center}
     .hero-content{padding-top:0}
   }
   .hero-tag{
@@ -492,21 +492,22 @@
 </head>
 <body>
 
-<header id="hdr">
-  <div class="container nav">
-    <div class="logo">SÉCULO<span>23</span></div>
-    <ul class="nav-links">
-      <li><a href="#filmes">Filmes</a></li>
-      <li><a href="#series">Séries</a></li>
-      <li><a href="#planos">Planos</a></li>
-      <li><a href="#faq">FAQ</a></li>
-    </ul>
-  </div>
-</header>
-
-<a class="trial-bar" href="https://wa.me/5561998258607?text=Quero%20solicitar%20meu%20teste%20gr%C3%A1tis%20de%204%20horas%20do%20S%C3%A9culo%2023%20IPTV" target="_blank">
-  🎁 <strong>4 HORAS GRÁTIS</strong> — Liberar agora no WhatsApp →
-</a>
+<div class="topbar">
+  <a class="trial-bar" href="https://wa.me/5561998258607?text=Quero%20solicitar%20meu%20teste%20gr%C3%A1tis%20de%204%20horas%20do%20S%C3%A9culo%2023%20IPTV" target="_blank">
+    🎁 <strong>4 HORAS GRÁTIS</strong> — Liberar no WhatsApp →
+  </a>
+  <header>
+    <div class="container nav">
+      <div class="logo">SÉCULO<span>23</span></div>
+      <ul class="nav-links">
+        <li><a href="#filmes">Filmes</a></li>
+        <li><a href="#series">Séries</a></li>
+        <li><a href="#planos">Planos</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+    </div>
+  </header>
+</div>
 
 <section class="hero">
   <div class="hero-bg"></div>
@@ -720,9 +721,6 @@
 </a>
 
 <script>
-  const hdr=document.getElementById('hdr');
-  window.addEventListener('scroll',()=>hdr.classList.toggle('scrolled',window.scrollY>50),{passive:true});
-
   document.querySelectorAll('.faq-item').forEach(item=>{
     item.querySelector('.faq-q').addEventListener('click',()=>item.classList.toggle('active'));
   });
